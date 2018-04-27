@@ -2,12 +2,20 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>UUID测试2</title> 
+	<title>UUID测试</title> 
 	<script>
 
 		function showUVID() {
 			document.getElementById("uvidView").innerHTML="UVID";
-
+			return;
+			if (typeof(Storage) !== "undefined") {
+			  var node_detail_uvid = localStorage.getItem('node_detail_uvid');
+			  if(node_detail_uvid){
+			  	return node_detail_uvid;
+			  }else{
+			  	return “Not found UVID”；
+			  }
+			}
 		}
 		function randomString(len) {
 		　　len = len || 32;
@@ -23,7 +31,7 @@
 </head>
 <body>
 
-	<h1>UVID测试程序</h1>
+	<h1>UVID测试程序2</h1>
 	<p id="uvidView">[在这里显示UVID]</p>
 	<button type="button" onclick="showUVID()">显示</button>
 
