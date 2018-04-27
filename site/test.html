@@ -6,14 +6,13 @@
 	<script>
 
 		function showUVID() {
-			document.getElementById("uvidView").innerHTML="UVID";
-			return;
+			//document.getElementById("uvidView").innerHTML="UVID";
 			if (typeof(Storage) !== "undefined") {
 			  var node_detail_uvid = localStorage.getItem('node_detail_uvid');
 			  if(node_detail_uvid){
-			  	return node_detail_uvid;
+			  	document.getElementById("uvidView").innerHTML= node_detail_uvid;
 			  }else{
-			  	return “Not found UVID”；
+			  	document.getElementById("uvidView").innerHTML= “Not found UVID”;
 			  }
 			}
 		}
@@ -31,7 +30,7 @@
 </head>
 <body>
 
-	<h1>UVID测试程序2</h1>
+	<h1>UVID测试程序3</h1>
 	<p id="uvidView">[在这里显示UVID]</p>
 	<button type="button" onclick="showUVID()">显示</button>
 
