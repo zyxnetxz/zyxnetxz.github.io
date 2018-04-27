@@ -1,1 +1,51 @@
-a website test html page
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>UUID测试</title> 
+	<script>
+		window.onload=function(){
+			//alert(typeof(Storage));
+			if (typeof(Storage) !== "undefined") {
+			  var node_detail_uvid = localStorage.getItem('node_detail_uvid');
+			  if(node_detail_uvid){
+			  }else{
+			  	localStorage.setItem("node_detail_uvid", randomString(32));
+			  	node_detail_uvid = localStorage.getItem('node_detail_uvid');
+			  }
+			}else{
+		      	/*alert('抱歉！您的浏览器不支持 Web Storage ...')*/
+		    }
+		}
+		function showUVID() {
+			document.getElementById("uvidView").innerHTML="UVID";
+			return;
+			if (typeof(Storage) !== "undefined") {
+			  var node_detail_uvid = localStorage.getItem('node_detail_uvid');
+			  if(node_detail_uvid){
+			  	return node_detail_uvid;
+			  }else{
+			  	return “Not found UVID”；
+			  }
+			}
+		}
+		function randomString(len) {
+		　　len = len || 32;
+		　　var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz12345678';
+		　　var maxPos = $chars.length;
+		　　var pwd = '';
+		　　for (i = 0; i < len; i++) {
+		　　　　pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+		　　}
+		　　return pwd;
+		}
+	</script>
+</head>
+<body>
+
+	<h1>UVID测试程序</h1>
+	<p id="uvidView">[在这里显示UVID]</p>
+	<button type="button" onclick="showUVID()">显示</button>
+
+</body>
+</html>
